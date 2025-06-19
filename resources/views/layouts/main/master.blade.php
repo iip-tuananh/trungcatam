@@ -189,14 +189,13 @@
             languageSelect.dispatchEvent(new Event("change"));
         }
     </script>
-
+{{-- 
     <div class="lang-wrap">
         <a href="javascript:;" onclick="translateheader('vi')"><img width="30"
-                src="{{ url('frontend/images/vn.png') }}" alt=""></a>
-        {{-- <span>/</span> --}}
+                src="{{ asset('frontend/images/vn.png') }}" alt=""></a>
         <a href="javascript:;" onclick="translateheader('en')"><img width="30"
-                src="{{ url('frontend/images/eng.png') }}" alt=""></a>
-    </div>
+                src="{{ asset('frontend/images/eng.png') }}" alt=""></a>
+    </div> --}}
     <script>
         // ...existing code...
         document.addEventListener('DOMContentLoaded', function() {
@@ -428,7 +427,7 @@
             // Hàm gửi AJAX để lọc sản phẩm
             function filterProducts() {
                 $.ajax({
-                    url: '/filter.html',
+                    url: '/locsanpham',
                     type: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',

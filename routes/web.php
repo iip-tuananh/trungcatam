@@ -36,7 +36,7 @@ Route::group(['namespace'=>'Client','middleware' => ['checkLanguage']], function
     Route::get('dang-ky.html','AuthController@register')->name('register');
     Route::post('dang-ky.html','AuthController@postRegister')->name('postRegister');
     Route::get('dang-xuat.html','AuthController@logout')->name('logout')->middleware('CheckAuthClient::class');
-    Route::post('filter.html','ProductController@filterProduct')->name('filterProduct');
+
     Route::get('build-pc.html','BuildPcController@buildPc')->name('buildPc');
     
     Route::get('video-review.html','PageController@videoReview')->name('videoReview');
@@ -64,6 +64,7 @@ Route::group(['namespace'=>'Client','middleware' => ['checkLanguage']], function
     Route::post('update-cart', 'CartController@update')->name('update.cart');
     Route::post('remove-from-cart', 'CartController@removeDetail')->name('remove.from.cart');
     Route::post('/cart/update-quantity', 'CartController@updateQuantity')->name('cart.updateQuantity');
+    
     Route::post('/cart/remove', 'CartController@removemh')->name('cart.remove');
     Route::post('thanh-toan.html','CartController@checkout')->name('checkout');
     Route::post('thantoan','CartController@postBill')->name('postBill');
@@ -96,6 +97,7 @@ Route::group(['namespace'=>'Client','middleware' => ['checkLanguage']], function
 
     Route::get('tat-ca-san-pham.html','ProductController@allProduct')->name('allProduct');
     Route::get('san-pham-noi-bat.html','ProductController@flashSale')->name('flashSale');
+    Route::post('/locsanpham','ProductController@filterProduct')->name('filterProduct');
     Route::get('tag/{tag}.html','ProductController@tag')->name('allListTags');
     Route::get('chi-tiet/{cate}/{type}/{id}.html','ProductController@detail_product')->name('detailProduct');
     Route::get('{danhmuc}.html','ProductController@allListCate')->name('allListProCate');
