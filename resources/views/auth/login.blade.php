@@ -6,7 +6,11 @@
     Đăng nhập mua hàng tại icongnghe
 @endsection
 @section('image')
-     {{ $anhweb[0] }}
+    @php
+    $anhweb = json_decode($firstImage, true);
+ 
+@endphp
+    {{ $anhweb[0] }}
 @endsection
 @section('css')
 @endsection

@@ -6,7 +6,11 @@
     Danh sách {{ $title }}
 @endsection
 @section('image')
-     {{ $anhweb[0] }}
+    @php
+    $anhweb = json_decode($firstImage, true);
+ 
+@endphp
+    {{ $anhweb[0] }}
 @endsection
 @section('script')
     <link rel="preload" as="script" href="{{env('AWS_R2_URL')}}/frontend/js/col.js" />

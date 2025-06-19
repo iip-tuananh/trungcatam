@@ -6,7 +6,7 @@
     {{ $setting->webname }}
 @endsection
 @section('image')
-@php
+   @php
     $anhweb = json_decode($firstImage, true);
  
 @endphp
