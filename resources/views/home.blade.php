@@ -410,8 +410,8 @@
                     <div class="reserve-table-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">Liên hệ đặt bàn </h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Đặt bàn ngay và
+                            <h3 class="wow fadeInUp">Liên hệ ngay </h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Liên hệ ngay và
                                 <span>thưởng thức trải nghiệm ẩm thực.</span>
                             </h2>
                         </div>

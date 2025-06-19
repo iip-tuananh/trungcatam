@@ -83,7 +83,9 @@
 </head>
 
 <body>
-
+@php
+    dd(route('add.to.cart', [], true));
+@endphp
     <!-- Preloader Start -->
     {{-- <div class="preloader">
 		<div class="loading-container">
