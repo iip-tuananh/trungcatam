@@ -428,7 +428,7 @@
             // Hàm gửi AJAX để lọc sản phẩm
             function filterProducts() {
                 $.ajax({
-                    url: '{{ route('filterProduct') }}',
+                    url: '/filter.html',
                     type: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
@@ -530,7 +530,7 @@
     <script>
         $(document).on('click', '.remove-item-cart-tuan-detail', function() {
             let id = $(this).data('id'); // Lấy $key từ data-id
-            let url = "{{ route('remove.from.cart') }}";
+            let url = "/remove-from-cart";
 
             $.ajax({
                 url: url,
@@ -613,7 +613,7 @@
                     formData.append('quantity', 1);
 
                     // Gửi yêu cầu AJAX để thêm sản phẩm vào giỏ hàng
-                    fetch('{{ route('add.to.cart') }}', {
+                    fetch('/add-to-cart', {
                             method: 'POST',
                             body: formData,
                             headers: {
@@ -628,7 +628,7 @@
                                     .textContent = data.cartCount;
 
                                 // Gửi yêu cầu AJAX để cập nhật giỏ hàng
-                                fetch('{{ route('cart.sidebar') }}')
+                                fetch('/cart/sidebar')
                                     .then(response => response.text())
                                     .then(html => {
                                         // Cập nhật nội dung giỏ hàng

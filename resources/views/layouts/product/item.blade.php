@@ -66,8 +66,9 @@
                     </button></a>
             @else
                 <!-- Add to Cart Button -->
-                <button class="add-to-cart-btn themgio" data-product-id="{{ $pro->id }}"
-                    data-product-name="{{ $pro->name }}" data-product-price="{{ $pro->discount ?? $pro->price }}">
+                <button class="add-to-cart-btn themgio" data-id="{{ $pro['id'] }}"
+                                                    data-product-name="{{ $pro->name }}"
+                                                    data-product-price="{{ $pro->discount ?? $pro->price }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Thêm vào giỏ</span>
                 </button>
