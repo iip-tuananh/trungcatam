@@ -580,10 +580,14 @@
             $.ajax({
                 url: "{{ route('cart.updateQuantity') }}",
                 type: 'POST',
+                 headers: {
+                           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                               .content // Token CSRF
+                       },
                 data: {
                     key: key,
                     quantity: quantity,
-                    _token: $('meta[name="csrf-token"]').attr('content')
+                    
 
                 },
                 success: function(response) {
