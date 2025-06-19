@@ -83,9 +83,7 @@
 </head>
 
 <body>
-@php
-    dd(route('add.to.cart', [], true));
-@endphp
+
     <!-- Preloader Start -->
     {{-- <div class="preloader">
 		<div class="loading-container">
@@ -585,7 +583,8 @@
                 data: {
                     key: key,
                     quantity: quantity,
-                    _token: "{{ csrf_token() }}"
+                    _token: $('meta[name="csrf-token"]').attr('content')
+
                 },
                 success: function(response) {
                     if (response.success) {
