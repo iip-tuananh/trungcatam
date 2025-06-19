@@ -19,9 +19,7 @@
 
 @endsection
 @section('content')
-@php
-    dd($banner[0]->image);
-@endphp
+
     <div class="page-header parallaxie " style="background-image: url('{{ asset('frontend/images/zon.jpg') }}');">
         <div class="container">
             <div class="row">
