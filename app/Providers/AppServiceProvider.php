@@ -65,6 +65,7 @@ class AppServiceProvider extends ServiceProvider
             });
 
             $banner = Banner::where(['status'=>1])->get(['id','image','link','title','description']);
+            $firstImage = $banner->first() ? $banner->first()->image : null;
             $cartcontent = session()->get('cart', []);
             $viewold = session()->get('viewoldpro', []);
             $compare = session()->get('compareProduct', []);
@@ -91,7 +92,8 @@ class AppServiceProvider extends ServiceProvider
                 'thongtin' => $thongtin,
                 'carthome' => $carthome,
                 'cartCount' => $cartCount,
-                'certificates' => $certificates
+                'certificates' => $certificates,
+                'firstImage' => $firstImage,
                 ]);    
         });  
     }

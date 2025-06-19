@@ -6,7 +6,7 @@
     Danh sách {{ $title }}
 @endsection
 @section('image')
-    {{ $banner[0]->image }}
+     {{ $anhweb[0] }}
 @endsection
 @section('script')
     <link rel="preload" as="script" href="{{env('AWS_R2_URL')}}/frontend/js/col.js" />

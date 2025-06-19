@@ -6,7 +6,7 @@
     Đăng nhập mua hàng tại icongnghe
 @endsection
 @section('image')
-    {{ $banner[0]->image }}
+     {{ $anhweb[0] }}
 @endsection
 @section('css')
 @endsection

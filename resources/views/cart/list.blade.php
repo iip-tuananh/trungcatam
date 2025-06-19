@@ -6,7 +6,7 @@
     Bún đậu mắm tôm Lynh
 @endsection
 @section('image')
-    {{ $banner[0]->image }}
+     {{ $anhweb[0] }}
 @endsection
 @section('css')
   

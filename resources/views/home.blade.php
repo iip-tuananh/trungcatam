@@ -6,7 +6,11 @@
     {{ $setting->webname }}
 @endsection
 @section('image')
-    {{ $banner[0]->image }}
+@php
+    $anhweb = json_decode($firstImage, true);
+ 
+@endphp
+    {{ $anhweb[0] }}
 @endsection
 @section('css')
 @endsection

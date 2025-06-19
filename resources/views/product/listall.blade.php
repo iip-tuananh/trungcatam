@@ -6,19 +6,18 @@
     Danh sách {{ $title }}
 @endsection
 @section('image')
-    {{ $banner[0]->image }}
+     {{ $anhweb[0] }}
 @endsection
 @section('js')
-    <script src="{{ env('AWS_R2_URL') }}/frontend/js/filter.js" defer></script>
-    <script src="{{ env('AWS_R2_URL') }}/frontend/js/mew_collection_script.js" defer></script>
+   
 @endsection
 @section('css')
-    {{-- <link rel="preload" as="style" href="{{ env('AWS_R2_URL') }}/frontend/css/collection_style.scss.css" type="text/css">
-    <link href="{{ env('AWS_R2_URL') }}/frontend/css/collection_style.scss.css" rel="stylesheet" type="text/css"
-        media="all" /> --}}
+
 @endsection
 @section('content')
-
+@php
+    dd($banner[0]->image);
+@endphp
     <div class="page-header parallaxie " style="background-image: url('{{ asset('frontend/images/zon.jpg') }}');">
         <div class="container">
             <div class="row">
@@ -224,7 +223,7 @@
                                                 @if ($item->discount && $item->discount < $item->price)
                                                     @php
                                                         $discount = round(
-                                                            (($item->price - $item->discount) / $item->price) * 100,
+                                                            (($item->price - $item->discount) / $item->price) * 100
                                                         );
                                                     @endphp
                                                     <div class="discount-badge">
