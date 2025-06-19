@@ -6,10 +6,10 @@
     {{ $setting->webname }}
 @endsection
 @section('image')
-   @php
-    $anhweb = json_decode($firstImage, true);
- 
-@endphp
+    @php
+        $anhweb = json_decode($firstImage, true);
+
+    @endphp
     {{ $anhweb[0] }}
 @endsection
 @section('css')
@@ -289,7 +289,7 @@
                         <div class="owl-carousel owl-theme owl-carousel-review">
                             @foreach ($ReviewCus as $review)
                                 <div class="item text-center">
-                                    <img src="{{ $review->avatar }}" alt="{{ $review->name }}" class="review-avatar" >
+                                    <img src="{{ $review->avatar }}" alt="{{ $review->name }}" class="review-avatar">
                                     <h4 class="review-author">{!! languageName($review->name) !!}</h4>
                                     <p class="review-content">{!! languageName($review->content) !!}</p>
                                 </div>
@@ -298,6 +298,32 @@
                         <!-- Testimonial Slider End -->
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="our-blog">
+            <div class="container">
+                <div class="row section-row">
+                    <div class="col-lg-12">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Sản phẩm nổi bật</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Khám phá ngay sản phẩm nổi bật của
+                                <span>chúng
+                                    tôi</span></h2>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+              <div class="row">
+    <div class="section_prd_feature section products product_related" style="padding-top: 20px !important;">
+        {{-- Thêm Owl Carousel cho slide sản phẩm nổi bật --}}
+        <div class="owl-carousel owl-theme homePro-carousel">
+            @foreach ($homePro as $pro)
+                    @include('layouts.product.item', ['product' => $pro])
+            @endforeach
+        </div>
+    </div>
+</div>
             </div>
         </div>
         {{-- //phần chứng chỉ --}}
@@ -313,21 +339,18 @@
                         <!-- Section Title End -->
                     </div>
                 </div>
-            
+
                 <div class="row">
 
-                  <div class="owl-carousel owl-theme owl-carousel-chungchi">
-    @foreach($certificates as $certificate)
-        <div class="item">
-            <img src="{{ $certificate->image }}" 
-                 alt="Chứng chỉ" 
-                 class="certificate-thumb"
-                 data-bs-toggle="modal"
-                 data-bs-target="#certificateModal"
-                 data-img="{{ $certificate->image }}">
-        </div>
-    @endforeach
-</div>
+                    <div class="owl-carousel owl-theme owl-carousel-chungchi">
+                        @foreach ($certificates as $certificate)
+                            <div class="item">
+                                <img src="{{ $certificate->image }}" alt="Chứng chỉ" class="certificate-thumb"
+                                    data-bs-toggle="modal" data-bs-target="#certificateModal"
+                                    data-img="{{ $certificate->image }}">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
 
@@ -369,34 +392,35 @@
                 </div>
             </div>
             <div class="row">
-           <div class="owl-carousel blog-carousel">
-    @foreach ($hotnews as $item)
-        <div class="item">
-            <div class="post-item wow fadeInUp">
-                <div class="post-featured-image">
-                    <a href="{{route('detailBlog',['slug'=>$item->slug])}}" data-cursor-text="View">
-                        <figure class="image-anime">
-                            <img src="{{ $item->image }}" alt="">
-                        </figure>
-                    </a>
+                <div class="owl-carousel blog-carousel">
+                    @foreach ($hotnews as $item)
+                        <div class="item">
+                            <div class="post-item wow fadeInUp">
+                                <div class="post-featured-image">
+                                    <a href="{{ route('detailBlog', ['slug' => $item->slug]) }}" data-cursor-text="View">
+                                        <figure class="image-anime">
+                                            <img src="{{ $item->image }}" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="blog-item-body">
+                                    <div class="post-item-content">
+                                        <h3>
+                                            <a href="{{ route('detailBlog', ['slug' => $item->slug]) }}">
+                                                {!! languageName($item->title) !!}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="blog-item-btn">
+                                        <a href="{{ route('detailBlog', ['slug' => $item->slug]) }}"
+                                            class="readmore-btn">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="blog-item-body">
-                    <div class="post-item-content">
-                        <h3>
-                            <a href="{{route('detailBlog',['slug'=>$item->slug])}}">
-                                {!!languageName($item->title)!!}
-                            </a>
-                        </h3>
-                    </div>
-                    <div class="blog-item-btn">
-                        <a href="{{route('detailBlog',['slug'=>$item->slug])}}" class="readmore-btn">read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-            
+
             </div>
         </div>
     </div>
@@ -420,8 +444,10 @@
                         <div class="reserve-table-body wow fadeInUp" data-wow-delay="0.2s" style="font-size: 11px">
                             <h3>Giờ mở cửa</h3>
                             <ul>
-                                <li style="font-size: 11px">Thứ 2 - Thứ 5 <span style="font-size: 11px">10:00 AM - 09:00 PM</span></li>
-                                <li style="font-size: 11px">Thứ 6 - Thứ 7 <span style="font-size: 11px">09:00 AM - 10:00 PM</span></li>
+                                <li style="font-size: 11px">Thứ 2 - Thứ 5 <span style="font-size: 11px">10:00 AM - 09:00
+                                        PM</span></li>
+                                <li style="font-size: 11px">Thứ 6 - Thứ 7 <span style="font-size: 11px">09:00 AM - 10:00
+                                        PM</span></li>
                                 <li style="font-size: 11px">Chủ nhật <span style="font-size: 11px">Đóng cửa</span></li>
                             </ul>
                         </div>
@@ -432,8 +458,7 @@
                 <div class="col-lg-6">
                     <!-- Reserve Table Form Start -->
                     <div class="reserve-table-form">
-                        <form id="contactForm" action="{{route('postcontact')}}" method="POST" 
-                            class="wow fadeInUp">
+                        <form id="contactForm" action="{{ route('postcontact') }}" method="POST" class="wow fadeInUp">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
@@ -454,13 +479,13 @@
                                         placeholder="Số điện thoại của bạn" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                               <div class="form-group col-md-12 mb-4">
+                                <div class="form-group col-md-12 mb-4">
                                     <label class="form-label">Nội Dung</label>
-                                    <textarea type="text" name="mess" class="form-control" id="message"
-                                        placeholder="Nội dung của bạn" required></textarea>
+                                    <textarea type="text" name="mess" class="form-control" id="message" placeholder="Nội dung của bạn"
+                                        required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                 
+
                                 <div class="col-lg-12">
                                     <div class="reserve-table-btn">
                                         <button type="submit" class="btn-default">Liên Hệ Ngay</button>
@@ -475,23 +500,64 @@
             </div>
         </div>
     </div>
-<div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true" style="z-index: 3002;">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="certificateModalLabel">Chứng chỉ</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img id="modalCertificateImg" src="" alt="Chứng chỉ" style="max-width:100%; max-height:80vh;">
-        <div class="mt-3">
-          <button id="prevCertificate" class="btn btn-secondary me-2">Lùi</button>
-          <button id="nextCertificate" class="btn btn-secondary">Tiếp</button>
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel"
+        aria-hidden="true" style="z-index: 3002;">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel">Chứng chỉ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalCertificateImg" src="" alt="Chứng chỉ"
+                        style="max-width:100%; max-height:80vh;">
+                    <div class="mt-3">
+                        <button id="prevCertificate" class="btn btn-secondary me-2">Lùi</button>
+                        <button id="nextCertificate" class="btn btn-secondary">Tiếp</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-
+    <script>
+        $(document).ready(function(){
+            $('.homePro-carousel').owlCarousel({
+                loop:true,
+                margin:20,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                responsiveClass:true,
+                items:4,
+                // nav:true,
+                dots: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                rows: 2,
+                autoplaySpeed: 1000,
+                // navSpeed: 1000,
+                autoplayHoverPause: true,
+                responsive:{
+                    0:{ items:1 },
+                    576:{ items:2 },
+                    992:{ items:3 },
+                    1200:{ items:4 }
+                },
+                navText: [
+                    '<span class="owl-nav-prev">&lt;</span>',
+                    '<span class="owl-nav-next">&gt;</span>'
+                ]
+            });
+        });
+    </script>
+    <style>
+        .product-thumb, .product-image img {
+    width: 100%;
+    height: 250px; /* hoặc chiều cao bạn muốn */
+    object-fit: contain; /* hoặc cover nếu muốn ảnh cắt đều */
+    background: #111; /* màu nền cho ảnh nhỏ */
+    display: block;
+}
+    </style>
 @endsection
 <!-- Content goes here -->

@@ -578,17 +578,14 @@
             input.val(quantity);
 
             $.ajax({
-                url: "{{ route('cart.updateQuantity') }}",
+                url: "/cart/update-quantity",
                 type: 'POST',
-                 headers: {
-                           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                               .content // Token CSRF
-                       },
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
                 data: {
                     key: key,
-                    quantity: quantity,
-                    
-
+                    quantity: quantity
                 },
                 success: function(response) {
                     if (response.success) {
@@ -612,7 +609,6 @@
 
                     const productId = this.getAttribute('data-id');
                     const formData = new FormData();
-                    formData.append('_token', '{{ csrf_token() }}');
                     formData.append('product_id', productId);
                     formData.append('quantity', 1);
 
@@ -620,6 +616,9 @@
                     fetch('{{ route('add.to.cart') }}', {
                             method: 'POST',
                             body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                            }
                         })
                         .then(response => response.json())
                         .then(data => {

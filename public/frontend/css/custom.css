@@ -5940,7 +5940,7 @@ header.main-header .header-sticky.active{
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     border-color: #007bff;
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
 }
@@ -6176,7 +6176,7 @@ header.main-header .header-sticky.active{
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     border-color: var(--gold-primary);
     box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
 }
